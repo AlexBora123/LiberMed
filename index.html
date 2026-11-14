@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ro" x-data="{ dark: true }" :class="{ 'dark': dark }">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Libermed</title>
+</head>
+
+<body class="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
+
+  <!-- ============ HERO ============ -->
+  <section class="border-t-8 border-osi">
+    <div class="mx-auto max-w-6xl px-6 py-12 sm:px-10 md:py-20 lg:px-16">
+
+      <!-- Rând sus: logo (stânga) + comutator temă (dreapta) -->
+      <div class="mb-16 flex items-center justify-between md:mb-24">
+        <div class="flex items-center gap-3">
+          <svg viewBox="0 0 100 100" class="h-12 w-12 text-osi" fill="currentColor" aria-hidden="true">
+            <path d="M34.8 82.6 A36 36 0 1 1 65.2 82.6" fill="none" stroke="currentColor" stroke-width="14" />
+            <path d="M48 35 C44 32 37 33 35 39 C30 40 28 46 31 50 C28 54 30 60 35 61 C37 66 44 67 48 64 Z" />
+            <path d="M52 35 C56 32 63 33 65 39 C70 40 72 46 69 50 C72 54 70 60 65 61 C63 66 56 67 52 64 Z" />
+          </svg>
+          <span class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+            Liber<span class="text-osi">Med</span>
+          </span>
+        </div>
+
+        <!-- Comutator flat -->
+        <button
+          @click="dark = !dark"
+          role="switch"
+          :aria-checked="dark"
+          aria-label="Comută tema"
+          class="relative h-10 w-20 rounded-full bg-slate-200 p-1 dark:bg-slate-800"
+        >
+          <span
+            class="relative block h-8 w-8 rounded-full bg-osi text-white transition-transform duration-300 ease-out"
+            :class="dark ? 'translate-x-10' : 'translate-x-0'"
+          >
+            <!-- SOARE: pe buton în tema albă -->
+            <svg
+              x-show="!dark"
+              x-transition:enter="transition duration-300"
+              x-transition:enter-start="opacity-0 -rotate-90"
+              x-transition:enter-end="opacity-100 rotate-0"
+              x-transition:leave="transition duration-150"
+              x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0"
+              viewBox="0 0 24 24"
+              class="absolute inset-0 m-auto h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4" fill="currentColor" />
+              <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+            </svg>
+
+            <!-- LUNĂ: pe buton în tema neagră -->
+            <svg
+              x-show="dark"
+              x-transition:enter="transition duration-300"
+              x-transition:enter-start="opacity-0 rotate-90"
+              x-transition:enter-end="opacity-100 rotate-0"
+              x-transition:leave="transition duration-150"
+              x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0"
+              viewBox="0 0 24 24"
+              class="absolute inset-0 m-auto h-5 w-5"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+            </svg>
+          </span>
+        </button>
+      </div>
+
+      <p class="text-sm font-semibold uppercase tracking-widest text-osi-dark dark:text-osi">
+        Libermed
+      </p>
+
+      <h1 class="mt-4 text-5xl font-bold leading-tight md:text-7xl lg:text-8xl">
+        Cunoașterea nu se vinde. Se dăruiește.
+      </h1>
+
+      <p class="mt-8 max-w-2xl text-lg text-slate-600 dark:text-slate-300 md:text-xl">
+        Libermed este o platformă cu grile de biologie și chimie pentru
+        pregătirea examenelor de admitere la facultățile de medicină din
+        România. Este complet gratuită.
+      </p>
+
+      <!-- Buton flat: intrare în grile -->
+      <a
+        href="#"
+        class="mt-10 inline-block rounded-full bg-osi px-8 py-4 text-lg font-bold text-white transition-colors duration-150 hover:bg-osi-dark"
+      >
+        Începe grilele
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ CITAT + PORTRET (singurul element skeuomorf) ============ -->
+  <section class="px-6 pb-20 sm:px-10 lg:px-16">
+    <div class="mx-auto max-w-6xl">
+      <figure class="skeu-card grid items-center gap-12 p-8 md:grid-cols-5 md:p-14">
+
+        <div class="md:col-span-2">
+          <div class="relative mx-auto w-64 -rotate-3 bg-white p-3 pb-14 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.5)]">
+            <span class="absolute -top-3 left-1/2 h-6 w-20 -translate-x-1/2 rotate-2 bg-amber-200/70 shadow-sm"></span>
+            <img
+              src="src/assets/iorga.jpg"
+              alt="Portretul lui Nicolae Iorga"
+              class="aspect-[3/4] w-full bg-slate-300 object-cover grayscale"
+            />
+            <p class="absolute bottom-4 left-0 right-0 text-center text-sm font-semibold text-slate-700">
+              Nicolae Iorga 1871-1940
+            </p>
+          </div>
+        </div>
+
+        <div class="md:col-span-3">
+          <span class="block text-8xl font-bold leading-none text-osi" aria-hidden="true">“</span>
+          <blockquote class="-mt-6 text-2xl font-semibold leading-snug md:text-3xl">
+            Școala cea mai bună e aceea în care înveți înainte de toate a învăța.
+          </blockquote>
+        </div>
+
+      </figure>
+    </div>
+  </section>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
